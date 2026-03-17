@@ -2,20 +2,20 @@ server:
   port: 9090
 
 spring:
+  application:
+    name: api-gateway11
+
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
       routes:
-        - id: doctor-service
-          uri: lb://doctor-service11
+
+        - id: doctor-service-route
+          uri: lb://DOCTOR-SERVICE11
           predicates:
-            - Path=/doctors/**
-        - id: appointment-service
-          uri: lb://appointment-service11
+            - Path=/doctor/**
+
+        - id: appointment-service-route
+          uri: lb://APPOINTMENT-SERVICE11
           predicates:
             - Path=/appointments/**
 
@@ -23,7 +23,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-    registry-fetch-interval-seconds: 5
 
 management:
   endpoints:
