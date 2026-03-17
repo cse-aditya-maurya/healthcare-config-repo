@@ -5,11 +5,6 @@ spring:
   cloud:
     gateway:
 
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
       routes:
         - id: doctor-service
           uri: lb://doctor-service11
@@ -25,6 +20,11 @@ spring:
           filters:
             - StripPrefix=0
 
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
 eureka:
   client:
     service-url:
@@ -35,3 +35,7 @@ management:
     web:
       exposure:
         include: "*"
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
