@@ -3,4 +3,6 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:doctordb
+    url: jdbc:mysql://localhost:3306/doctor_db
+    username: root
+    password: Adi@2552
