@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: doctor-service11
+    name: DOCTOR-SERVICE11
 
   datasource:
     url: jdbc:mysql://localhost:3306/doctor_db
