@@ -1,0 +1,37 @@
+server:
+  port: 9090
+
+spring:
+  cloud:
+    gateway:
+
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: doctor-service
+          uri: lb://doctor-service11
+          predicates:
+            - Path=/doctors/**
+          filters:
+            - StripPrefix=0
+
+        - id: appointment-service
+          uri: lb://appointment-service11
+          predicates:
+            - Path=/appointments/**
+          filters:
+            - StripPrefix=0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
