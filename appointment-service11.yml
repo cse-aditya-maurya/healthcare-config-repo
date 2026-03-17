@@ -1,12 +1,12 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
-    name: doctor-service11
+    name: appointment-service11
 
   datasource:
-    url: jdbc:mysql://localhost:3306/doctor_db
+    url: jdbc:mysql://localhost:3306/appointment_db
     username: root
     password: Adi@2552
 
@@ -14,6 +14,12 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:
